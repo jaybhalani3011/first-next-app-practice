@@ -7,7 +7,7 @@ export default function docsAndDocsParams() {
     console.log(params); //Found the array of all the nested params after docs... 
     return ( 
         <div>
-            <h1>Here in docs with catch all routes.</h1>
+            <h1>Here we are in master branch docs with catch all routes.</h1>
         </div>
     )
 }
