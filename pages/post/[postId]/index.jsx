@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+import { useRouter } from 'next/router';
 
-export default function indexOfPostId() {
+export default function IndexOfPostId() {
     const router = useRouter();
     const postId = router.query.postId;
     return (

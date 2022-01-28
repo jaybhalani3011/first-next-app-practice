@@ -2,9 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-export default function docsAndDocsParams() {
-    const router = useRouter();
-    const { params } = router.query;
+export default function DocsAndDocsParams() {
+    const Router = useRouter();
+    const { params } = Router.query;
     console.log(params); //Found the array of all the nested params after docs... 
     return ( 
         <div>

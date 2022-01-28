@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
-export default function like() {
+export default function Like() {
     const router = useRouter();
     const {postId,likeId} = router.query;
     return (
