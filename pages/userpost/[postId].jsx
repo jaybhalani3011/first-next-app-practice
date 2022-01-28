@@ -15,10 +15,11 @@ export async function getStaticPaths() {
     // Assigning dynamically path to next.js router
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
     const data = await res.json();
-    let paths = []
-    data.length>0 && data.map(user=> {
+    let paths = data.length>0 && data.map(user=> {
         // console.log("user---->",user)
-        paths.push({params : {postId : user.id.toString()}}) 
+        return{
+            params : {postId : `${user.id}`}
+        }
     })
 
     return {
