@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 // import User from '../../components/user';
-;
 
 
 export default function PostList({ posts }) {
@@ -25,7 +24,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: data.slice(0, 3)
+            posts: data,
         }
     }
 }
