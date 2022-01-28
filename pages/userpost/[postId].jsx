@@ -3,7 +3,7 @@ import React from 'react';
 export default function PostId({ post }) {
     return (
         <>
-            <h2>Post's Description :- </h2><br /><hr /><br />
+            <h2>Post&apos;s Description :- </h2><br /><hr /><br />
             <h1>{post.id === 1 ? `${post.id}st post`: post.id === 2 ? `${post.id}nd post` : `${post.id}rd post`}</h1>
             <h1>Title :- {post.title}</h1>
             <h1>Body :- {post.body}</h1>
@@ -12,20 +12,35 @@ export default function PostId({ post }) {
 }
 
 export async function getStaticPaths() {
+    // Assigning dynamically path to next.js router
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+    const data = await res.json();
+    let paths = []
+    data.length>0 && data.map(user=> {
+        // console.log("user---->",user)
+        paths.push({params : {postId : user.id.toString()}}) 
+    })
+
     return {
-        paths: [
-            {
-                params: { postId: '1' }
-            },
-            {
-                params: { postId: '2' }
-            },
-            {
-                params: { postId: '3' }
-            },
-        ],
+        paths,
         fallback: false,
     }
+
+    // Assigning statically dynamic path to next.js router
+    // return {
+    //     paths: [
+    //         {
+    //             params: { postId: '1' }
+    //         },
+    //         {
+    //             params: { postId: '2' }
+    //         },
+    //         {
+    //             params: { postId: '3' }
+    //         },
+    //     ],
+    //     fallback: false,
+    // }
 
 }
 
