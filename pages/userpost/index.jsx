@@ -11,7 +11,7 @@ export default function PostList({ posts }) {
                 <div key={index}>
                     <h1>{post.id}</h1>
                     <h2>Title :- {post.title}</h2>
-                    <Link href={`userpost/${post.id}`}><a>read more...</a></Link><hr />
+                    <Link href={`userpost/${post.id}`} passHref>read more...</Link><hr />
                 </div>
             ))}
         </div>
@@ -24,7 +24,7 @@ export async function getStaticProps() {
 
     return {
         props: {
-            posts: data,
+            posts: data.slice(0,99),
         }
     }
 }

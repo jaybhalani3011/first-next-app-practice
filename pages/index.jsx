@@ -19,7 +19,7 @@ export default function Home() {
         <a>hey</a>
       </Link><br />
       <button onClick={handleFn}>Click for PostList</button><hr /><hr />
-      <Link href={'/userpost'}>
+      <Link href='/userpost'>
         <a style={{cursor:'pointer'}}>User Posts</a>
       </Link>
     </div>
