@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import React from 'react';
 
 export default function PostId({ post }) {
-    const router = useRouter();
-    if (router.isFallback) {
-        return <h1>Loading... for static generation of the above routes by getStaticPaths.</h1>
-    }
+    // const router = useRouter();
+    // if (router.isFallback) {
+    //     return <h1>Loading... for static generation of the above routes by getStaticPaths.</h1>
+    // }
     return (
         <>
             <h2>Post&apos;s Description :- </h2><br /><hr /><br />
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true, //false
+        fallback: 'blocking', //false & true
     }
 
     // Assigning statically dynamic path to next.js router
@@ -63,6 +63,7 @@ export async function getStaticProps(context) {
     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`);
     const data = await res.json();
 
+    console.log(`Generating page for /userpost/${params.postId}`);
     return {
         props: {
             post: data
