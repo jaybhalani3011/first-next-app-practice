@@ -22,6 +22,11 @@ export default function Home() {
       <Link href='/userpost'>
         <a style={{cursor:'pointer'}}>User Posts</a>
       </Link>
+      <hr /><hr />
+      <Link href='/products'>
+        <a style={{cursor:'pointer'}}>User Products</a>
+      </Link>
+
     </div>
   )
 }
