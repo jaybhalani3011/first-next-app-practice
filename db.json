@@ -60,5 +60,77 @@
         "likes": 150,
         "followers": 250,
         "following": 400
-    }
+    },
+    "events": [
+        {
+            "id": 1,
+            "title": "Open Gov Hack Night",
+            "category": "sports",
+            "description": "Description 1",
+            "event_dates": "march 24"
+        },
+        {
+            "id": 2,
+            "title": "Corporate Engineer",
+            "category": "world",
+            "description": "Description 2",
+            "event_dates": "december 24"
+        },
+        {
+            "id": 3,
+            "title": "International Advertising Specialist",
+            "category": "blockchain",
+            "description": "Description 3",
+            "event_dates": "february 28"
+        },
+        {
+            "id": 4,
+            "title": "Farming Liaison",
+            "category": "food",
+            "description": "Description 4",
+            "event_dates": "March 24"
+        },
+        {
+            "id": 5,
+            "title": "Healthcare Designer",
+            "category": "health",
+            "description": "Description 5",
+            "event_dates": "april 9"
+        },
+        {
+            "id": 6,
+            "title": "Human Accounting Consultant",
+            "category": "commerce",
+            "description": "Description 6",
+            "event_dates": "may 20"
+        },
+        {
+            "id": 7,
+            "title": "Retail Engineer",
+            "category": "sports",
+            "description": "Description 7",
+            "event_dates": "june 23"
+        },
+        {
+            "id": 8,
+            "title": "Government Facilitator",
+            "category": "politics",
+            "description": "Description 8",
+            "event_dates": "july 18"
+        },
+        {
+            "id": 9,
+            "title": "Lack manager",
+            "category": "corporate",
+            "description": "Description 9",
+            "event_dates": "january 9"
+        },
+        {
+            "id": 10,
+            "title": "Night Owl",
+            "category": "sports",
+            "description": "Description 10",
+            "event_dates": "March 16"
+        }
+    ]
 }
