@@ -4,7 +4,7 @@ export default function index() {
 
     const [comments, setComments] = useState([]);
     const [message, setMessage] = useState(null);
-    const [writeComment, setWriteComment] = useState();
+    const [writeComment, setWriteComment] = useState('');
 
     const fetchComments = async () => {
         const response = await fetch(`/api/comments`);
@@ -17,17 +17,33 @@ export default function index() {
     }
 
     const submitComment = async () => {
-        const response = await fetch(`/api/comments`, {
-            method: 'POST',
-            body: JSON.stringify({comment:writeComment}),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+        if (writeComment === '' && !writeComment) {
+            alert('Comment box shouldn\'t be empty ');
+
+        } else {
+            const response = await fetch(`/api/comments`, {
+                method: 'POST',
+                body: JSON.stringify({ comment: writeComment }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            alert(data.message);
+            setWriteComment('')
+            // setMessage(data.message);     
+            // setMessage(null);     
+        }
+    }
+
+    const deleteHandler = async (id) => {
+        const response = await fetch(`/api/comments/${id}`, {
+            method: 'DELETE',
         });
         const data = await response.json();
-        setMessage(data.message);     
-        alert(message);
-        setMessage(null);     
+        alert(data.message);
+        // window.location.reload();
+        fetchComments();
     }
 
     return (<>
@@ -36,14 +52,14 @@ export default function index() {
             comments.length > 0 && comments.map((comment, index) => (
                 <div key={index}>
                     <div key={index}>
-                        {index + 1} | {comment.comment}
+                        {index + 1} | {comment.comment} &nbsp;&nbsp;<button onClick={() => deleteHandler(comment._id)}>👈Delete this comment</button>
                     </div><hr />
                 </div>
             ))
         }
         <br />
-        <input type="text" value={writeComment} onChange={(e) => fetchComment(e.target.value)} /><br />
-        <button onClick={submitComment}>Submit Comment</button>&nbsp;&nbsp;{message && alert('New Comment added successfully, make sure you load the Comments') }
+        <input id='input-box' type="text" value={writeComment} onChange={(e) => fetchComment(e.target.value)} /><br />
+        <button onClick={() => submitComment()}>Submit Comment</button>&nbsp;&nbsp;{message && alert('New Comment added successfully, make sure you load the Comments')}
 
     </>);
 }

@@ -2,8 +2,7 @@ import commentSchema from "../../../data/comments";
 import dbConnect from "../../../lib/dbConnection";
 
 export default async function handler(req, res) {
-    console.log('Here in api');
-    await dbConnect()
+    await dbConnect();
     if (req.method === 'GET') {
         try {
             const comments = await commentSchema.find({});
